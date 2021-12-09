@@ -1,0 +1,43 @@
+<div>
+    <label for ="category_id"> Id kategorii</label>
+    <input type="text"
+    class="form-control"
+    id="category_id"
+    required [(ngModel)] = "category_id"
+    name="title"/>
+    <button (click)="retrieveOffersbyCategory()">Filtruj</button>
+    <button (click)="retrieveOffers()">Wyswietl wszystkie</button>
+    <div class="col-md-6">
+        <h4>Lista produktów</h4>
+        <ul class="list-group">
+            <li
+            class="list-group-item"
+            *ngFor="let offer of offers; let i = index"
+            [class.active]="i == currentIndex"
+            (click)="setActiveOffer(offer, i)"
+            >
+            {{ offer.title }}
+            </li>
+        </ul>
+    
+    </div>
+
+    <div class="col-md-6">
+        <div *ngIf="currentOffer">
+            <h4>Szczegóły</h4>
+            <div>
+                <label><strong>Tytuł:</strong></label> {{ currentOffer.title }}
+            </div>
+            <div>
+                <label><strong>Cena:</strong></label>
+                {{ currentOffer.price }}
+            </div>
+
+        </div>
+
+        <div *ngIf="!currentOffer">
+        <br />
+        <p>Wybierz produkt</p>
+        </div>
+    </div>
+</div>
