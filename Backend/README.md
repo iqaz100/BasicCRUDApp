@@ -21,3 +21,5 @@ localhost:8000/api/offers/[ID]
 localhost:8000/api/categories
 
 localhost:8000/api/categories/[ID]
+
+localhost:8000/api/offerswithcategory/[CATEGORY_ID]
